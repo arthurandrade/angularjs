@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 var contatos = [
 	{serial:"FF5)J", nome: "Bruno dos Santos", telefone: "9999-2222", data: new Date(), operadora: {nome: "Oi", codigo: 14, categoria: "Celular"}},
 	{serial:"X\"SGD",nome: "Sandra Aparecida", telefone: "9999-3333", data: new Date(), operadora: {nome: "Vivo", codigo: 15, categoria: "Celular"}},
-	{serial:"XU()\\", nome: "Mariana das DORES", telefone: "9999-9999", data: new Date(), operadora: {nome: "Tim", codigo: 41, categoria: "Celular"}}
+	{ nome: "Mariana das DORES", telefone: "9999-9999", data: new Date(), operadora: {nome: "Tim", codigo: 41, categoria: "Celular"}}
 ];
 var operadoras = [
 	{nome: "Oi", codigo: 14, categoria: "Celular", preco: 2},
