@@ -7,9 +7,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 var contatos = [
-	{serial:"FF5)J", nome: "Bruno dos Santos", telefone: "9999-2222", data: new Date(), operadora: {nome: "Oi", codigo: 14, categoria: "Celular"}},
-	{serial:"X\"SGD",nome: "Sandra Aparecida", telefone: "9999-3333", data: new Date(), operadora: {nome: "Vivo", codigo: 15, categoria: "Celular"}},
-	{ nome: "Mariana das DORES", telefone: "9999-9999", data: new Date(), operadora: {nome: "Tim", codigo: 41, categoria: "Celular"}}
+	{id:"1", serial:"FF5)J", nome: "Bruno dos Santos", telefone: "9999-2222", data: new Date(), operadora: {nome: "Oi", codigo: 14, categoria: "Celular"}},
+	{id:"2", serial:"X\"SGD",nome: "Sandra Aparecida", telefone: "9999-3333", data: new Date(), operadora: {nome: "Vivo", codigo: 15, categoria: "Celular"}},
+	{id:"3", nome: "Mariana das DORES", telefone: "9999-9999", data: new Date(), operadora: {nome: "Tim", codigo: 41, categoria: "Celular"}}
 ];
 var operadoras = [
 	{nome: "Oi", codigo: 14, categoria: "Celular", preco: 2},
@@ -30,6 +30,15 @@ app.all('*', function(req, res, next) {
 
 app.get('/contatos', function(req, res) {
   res.json(contatos);
+});
+
+app.get('/contatos/:tagId', function(req, res) {
+	contatos.forEach(function (item) {
+		if(item.id == req.params.tagId)
+			res.json(item);
+	});
+
+  //res.send("tagId is set to " + req.params.tagId);
 });
 
 app.post('/contatos', function(req, res) {

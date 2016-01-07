@@ -1,0 +1,46 @@
+<div class="jumbotron" >
+		<h3>{{app}}</h3>
+		
+		<ui-accordions>
+			<ui-accordion title="Acoordion 1">
+				ufhfgiurehguirhguitrgnutgnuit uighuiejrbgijgbijkrgb gbrjgbregbhjkrgbhjkgb
+			</ui-accordion>
+			<ui-accordion title="Acoordion 2">
+				ufhfgiurehguirhguitrgnutgnuit uighuiejrbgijgbijkrgb gbrjgbregbhjkrgbhjkgb
+			</ui-accordion>
+		</ui-accordions>
+
+		<!--<ui-alert title ="Ops, aconteceu algo inesperado!" message="error"></ui-alert> -->
+		<!--<ui-alert title="Ops, aconteceu um problema!">
+			{{error}}
+		</ui-alert>
+
+		<ui-alert title="Série sobre AngularJS">
+			Episódio 10 - Criando Diretivas - Parte 1
+		</ui-alert>  -->		
+		
+		
+		<input  class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está procurando?">
+		<table  ng-show="contatos.length" class="table">
+			<tr>
+				<th></th>
+				<th>Serial</th>
+				<th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
+				<th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
+				<th>Operadora</th>
+				<th>Data</th>
+			</tr>
+			<tr ng-class="{selecionado: contato.selecionado, negrito: contato.selecionado}" ng-repeat="contato in contatos | filter:{nome: criterioDeBusca} | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+				
+				<td><input type="checkbox" ng-model="contato.selecionado"</td>
+				<td>{{contato.serial}}</td>
+				<td><a href="#/detalhesContato/{{contato.id}}">{{contato.nome | name }}</a></td>
+				<td>{{contato.telefone}}</td>
+				<td>{{contato.operadora.nome | lowercase}}</td>
+				<td>{{contato.data | date: "dd/MM/yyyy HH:mm"}}</td>
+			</tr>	
+		</table>
+		<hr/>
+		<a class="btn btn-primary btn-block" href="#/novoContato"> Novo Contato <a/>
+		<button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-show="isContatoSelecionado(contatos)">Apagar Contatos</button>
+	</div>
